@@ -2,7 +2,7 @@
 My basic C++ development container.
 
 ## Summary
-I started programming in C++ around 25 years ago. At that time, I developed
+I started programming C++ around 25 years ago. At that time, I developed
 on one system and tested on another. Of course, it didn't take long for a system
 to become a complete mess of old compilers, libraries, etc. As a result,
 system rebuilds we frequent. In the early 2000s, I started using virtual
@@ -10,7 +10,7 @@ machines for development. This was a huge improvement. At some point, I (like
 many others) started thinking about virtual machines as appliances that could
 be saved, shared, etc. Then, along came LXC and Docker.
 
-The code here builds my basic development environment:
+This code builds my basic development environment:
 * Debian Stable
 * GCC
 * CMake
