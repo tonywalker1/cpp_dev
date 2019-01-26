@@ -11,7 +11,7 @@ many others) started thinking about virtual machines as appliances that could
 be saved, shared, etc. Then, along came LXC and Docker.
 
 This code builds my basic development environment:
-* Debian Stable
+* Debian (Buster)
 * GCC
 * CMake
 * Boost

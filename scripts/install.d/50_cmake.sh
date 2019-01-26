@@ -22,30 +22,34 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+apt-get install -y --no-install-recommends \
+    cmake
+
+
 # create build envirnoment
-SCRATCH_DIR=/tmp/build_scratch
-rm -rf $SCRATCH_DIR
-mkdir -p $SCRATCH_DIR
-pushd $SCRATCH_DIR
+# SCRATCH_DIR=/tmp/build_scratch
+# rm -rf $SCRATCH_DIR
+# mkdir -p $SCRATCH_DIR
+# pushd $SCRATCH_DIR
 
 # install deps
-apt-get install -y --no-install-recommends \
-    curl \
-    libjsoncpp1 \
-    librhash0 \
-    libuv1
+# apt-get install -y --no-install-recommends \
+#     curl \
+#     libjsoncpp1 \
+#     librhash0 \
+#     libuv1
 
 # download and unpack
-curl \
-    --output cmake.tar.gz \
-    -L https://github.com/Kitware/CMake/releases/download/v3.13.3/cmake-3.13.3.tar.gz
-tar --strip-components=1 -zxf cmake.tar.gz
+# curl \
+#     --output cmake.tar.gz \
+#     -L https://github.com/Kitware/CMake/releases/download/v3.13.3/cmake-3.13.3.tar.gz
+# tar --strip-components=1 -zxf cmake.tar.gz
 
 # build and install
-./bootstrap --verbose --parallel=4 -- -DCMAKE_BUILD_TYPE:STRING=Release \
-    && make \
-    && make install
+# ./bootstrap --verbose --parallel=4 -- -DCMAKE_BUILD_TYPE:STRING=Release \
+#     && make \
+#     && make install
 
 # clean-up
-popd
-rm -rf $SCRATCH_DIR
+# popd
+# rm -rf $SCRATCH_DIR
