@@ -53,7 +53,7 @@ ll build
 cd build
 mkdir <my project>
 cd <my project>
-cmake ../src/<my project>
+cmake ../../src/<my project>
 make
 # your project should build...
 

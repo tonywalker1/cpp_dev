@@ -28,39 +28,14 @@ set -ex
 
 apt-get update
 
-# install compilers and dev tools
-apt-get install -y --no-install-recommends \
-    build-essential \
-    gcc \
-    g++ \
-    git \
-    make \
-    python3 \
-    valgrind
-
-# install libraries
-apt-get install -y --no-install-recommends \
-    icu-devtools \
-    libarchive-dev \
-    libbz2-dev \
-    libicu-dev \
-    zlib1g-dev
-
-# install misc tools
-apt-get install -y --no-install-recommends \
-    ca-certificates \
-    curl \
-    unzip
-
-# build and install other packages
-./install_cmake.sh
-./install_google_test.sh
-./install_google_benchmark.sh
-./install_date.sh
-./install_fmt.sh
-./install_boost.sh
+# run all installers from install.d
+# NOTE: remove execute to stop script from running
+for FILE in $(find install.d -name "*.sh" -perm /u+x | sort)
+do
+    $FILE
+done
 
 # clean-up
 rm -rf /var/lib/apt/lists/*
-rm -f $ROOT_DIR/setup.sh
-rm -f $ROOT_DIR/install_*.sh
+rm -rf $ROOT_DIR/install.d
+rm -f  $ROOT_DIR/setup.sh

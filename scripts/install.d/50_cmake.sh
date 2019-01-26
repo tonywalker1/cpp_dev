@@ -42,7 +42,7 @@ curl \
 tar --strip-components=1 -zxf cmake.tar.gz
 
 # build and install
-./bootstrap --verbose -- -DCMAKE_BUILD_TYPE:STRING=Release \
+./bootstrap --verbose --parallel=4 -- -DCMAKE_BUILD_TYPE:STRING=Release \
     && make \
     && make install
 
