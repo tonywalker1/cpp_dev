@@ -37,8 +37,8 @@ mkdir build \
     && cmake \
         -DUSE_SYSTEM_TZ_DB=ON \
         -DBUILD_SHARED_LIBS=ON \
-        -DCMAKE_CXX_STANDARD=14 \
-        -DDISABLE_STRING_VIEW=ON \
+        -DCMAKE_CXX_STANDARD=17 \
+        -DDISABLE_STRING_VIEW=OFF \
         -DCMAKE_BUILD_TYPE=Release \
         -Wall -Wextra -Wpedantic \
         -Wall \

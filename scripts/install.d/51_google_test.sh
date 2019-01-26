@@ -22,28 +22,25 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-apt-get install -y --no-install-recommends \
-    googletest
-
 # create build envirnoment
-# SCRATCH_DIR=/tmp/build_scratch
-# rm -rf $SCRATCH_DIR
-# mkdir -p $SCRATCH_DIR
-# pushd $SCRATCH_DIR
+SCRATCH_DIR=/tmp/build_scratch
+rm -rf $SCRATCH_DIR
+mkdir -p $SCRATCH_DIR
+pushd $SCRATCH_DIR
 
 # clone
-# git clone \
-#     --branch v1.8.x \
-#     --single-branch \
-#     https://github.com/google/googletest.git
+git clone \
+    --branch v1.8.x \
+    --single-branch \
+    https://github.com/google/googletest.git
 
 # build and install
-# mkdir build \
-#     && cd build \
-#     && cmake -DCMAKE_BUILD_TYPE=Release ../googletest \
-#     && make -j \
-#     && make install
+mkdir build \
+    && cd build \
+    && cmake -DCMAKE_BUILD_TYPE=Release ../googletest \
+    && make -j \
+    && make install
 
 # clean-up
-# popd
-# rm -rf $SCRATCH_DIR
+popd
+rm -rf $SCRATCH_DIR
