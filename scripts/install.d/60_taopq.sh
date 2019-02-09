@@ -28,22 +28,14 @@ rm -rf $SCRATCH_DIR
 mkdir -p $SCRATCH_DIR
 pushd $SCRATCH_DIR
 
-# install deps
-apt-get install -y --no-install-recommends \
-    curl \
-    libjsoncpp1 \
-    librhash0 \
-    libuv1
-
-# download and unpack
-curl \
-    --output cmake.tar.gz \
-    -L https://github.com/Kitware/CMake/releases/download/v3.13.4/cmake-3.13.4.tar.gz
-tar --strip-components=1 -zxf cmake.tar.gz
+# clone
+git clone https://github.com/taocpp/taopq.git
 
 # build and install
-./bootstrap --verbose --parallel=4 -- -DCMAKE_BUILD_TYPE:STRING=Release \
-    && make \
+mkdir build \
+    && cd build \
+    && cmake -DCMAKE_BUILD_TYPE=Release ../taopq
+    && make -j \
     && make install
 
 # clean-up
