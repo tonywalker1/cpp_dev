@@ -12,10 +12,10 @@ be saved, shared, etc. Then, along came LXC and Docker.
 
 This code builds my basic development environment:
 * Debian (Buster)
-* GCC
+* GCC and clang
 * CMake
 * Boost
-* Google Test
+* Catch2
 * Google Benchmark
 * libfmt (accepted for C++20)
 * Howard Hinnant's date and time library (accepted for C++20)

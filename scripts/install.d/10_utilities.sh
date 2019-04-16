@@ -1,14 +1,9 @@
 #!/bin/bash
 
 apt-get install -y --no-install-recommends \
-    autoconf \
-    automake \
-    autotools-dev \
+    bzip2 \
     ca-certificates \
     curl \
-    git \
-    m4 \
-    make \
+    gzip \
     pkg-config \
-    unzip \
-    valgrind
+    unzip

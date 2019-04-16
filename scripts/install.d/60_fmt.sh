@@ -22,28 +22,31 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+apt-get install -y --no-install-recommends \
+    libfmt-dev
+
 # create build envirnoment
-SCRATCH_DIR=/tmp/build_scratch
-rm -rf $SCRATCH_DIR
-mkdir -p $SCRATCH_DIR
-pushd $SCRATCH_DIR
-
-# download and unpack
-curl \
-    --output fmt.tar.gz \
-    -L https://github.com/fmtlib/fmt/archive/5.3.0.tar.gz
-tar --strip-components=1 -zxf fmt.tar.gz
-
-# build and install
-mkdir build \
-    && cd build \
-    && cmake \
-        -DBUILD_SHARED_LIBS=TRUE \
-        -DCMAKE_BUILD_TYPE=Release \
-        .. \
-    && make -j \
-    && make install
-
-# clean-up
-popd
-rm -rf $SCRATCH_DIR
+# SCRATCH_DIR=/tmp/build_scratch
+# rm -rf $SCRATCH_DIR
+# mkdir -p $SCRATCH_DIR
+# pushd $SCRATCH_DIR
+#
+# # download and unpack
+# curl \
+#     --output fmt.tar.gz \
+#     -L https://github.com/fmtlib/fmt/archive/5.3.0.tar.gz
+# tar --strip-components=1 -zxf fmt.tar.gz
+#
+# # build and install
+# mkdir build \
+#     && cd build \
+#     && cmake \
+#         -DBUILD_SHARED_LIBS=TRUE \
+#         -DCMAKE_BUILD_TYPE=Release \
+#         .. \
+#     && make -j \
+#     && make install
+#
+# # clean-up
+# popd
+# rm -rf $SCRATCH_DIR

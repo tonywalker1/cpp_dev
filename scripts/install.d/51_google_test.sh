@@ -29,10 +29,7 @@ mkdir -p $SCRATCH_DIR
 pushd $SCRATCH_DIR
 
 # clone
-git clone \
-    --branch v1.8.x \
-    --single-branch \
-    https://github.com/google/googletest.git
+git clone https://github.com/google/googletest.git
 
 # build and install
 mkdir build \
