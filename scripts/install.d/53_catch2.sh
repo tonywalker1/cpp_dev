@@ -36,6 +36,7 @@ mkdir build \
     && cd build \
     && cmake -DCMAKE_BUILD_TYPE=Release ../Catch2 \
     && make -j \
+    && ctest \
     && make install
 
 # clean-up

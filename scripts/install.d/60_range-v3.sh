@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # MIT License
 #
 # Copyright (c) 2019 Tony Walker
@@ -20,14 +22,29 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-FROM debian:stable
+# create build envirnoment
+SCRATCH_DIR=/tmp/build_scratch
+rm -rf $SCRATCH_DIR
+mkdir -p $SCRATCH_DIR
+pushd $SCRATCH_DIR
 
-WORKDIR /cpp
+# clone
+git clone https://github.com/ericniebler/range-v3.git
 
-ADD bashrc        /root/.bashrc
-ADD setup.sh      /cpp/setup.sh
-ADD install.d/*   /cpp/install.d/
+# build and install
+mkdir build \
+    && cd build \
+    && cmake \
+        -DCMAKE_CXX_STANDARD=17 \
+        -DCMAKE_BUILD_TYPE=Release \
+        -Wall \
+        -Wextra \
+        -Wpedantic \
+        ../range-v3 \
+    && make -j \
+    && ctest \
+    && make install
 
-RUN /cpp/setup.sh
-
-CMD /bin/bash
+# clean-up
+popd
+rm -rf $SCRATCH_DIR

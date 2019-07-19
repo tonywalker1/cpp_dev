@@ -39,13 +39,10 @@ mkdir build \
         -DBUILD_SHARED_LIBS=ON \
         -DCMAKE_CXX_STANDARD=17 \
         -DDISABLE_STRING_VIEW=OFF \
+        -DENABLE_DATE_TESTING=ON \
         -DCMAKE_BUILD_TYPE=Release \
-        -Wall -Wextra -Wpedantic \
-        -Wall \
-        -Wextra \
-        -Wpedantic \
         ../date \
-    && make -j \
+    && cmake --build . --target testit -j \
     && make install
 
 # clean-up
