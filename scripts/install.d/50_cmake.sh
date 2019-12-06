@@ -36,18 +36,20 @@ apt-get install -y --no-install-recommends \
     curl \
     libjsoncpp1 \
     librhash0 \
-    libuv1
-
-# download and unpack
-curl \
+    libssl-dev \
+    libuv1 \
+&& curl \
     --output cmake.tar.gz \
-    -L https://github.com/Kitware/CMake/releases/download/v3.16.0/cmake-3.16.0.tar.gz
-tar --strip-components=1 -zxf cmake.tar.gz
-
-# build and install
-./bootstrap --verbose -- -DCMAKE_BUILD_TYPE:STRING=Release \
-    && make \
-    && make install
+    -L https://github.com/Kitware/CMake/releases/download/v3.16.0/cmake-3.16.0.tar.gz \
+&& tar --strip-components=1 -zxf cmake.tar.gz \
+&& ./bootstrap --verbose -- -DCMAKE_BUILD_TYPE=Release \
+&& make \
+&& make install
+if [ $? -ne 0 ]
+then
+    echo "ERROR: Building CMake."
+    exit -1
+fi
 
 # clean-up
 popd

@@ -33,6 +33,12 @@ apt-get update
 for FILE in $(find install.d -name "*.sh" -perm /u+x | sort)
 do
     $FILE
+    if [ $? -ne 0 ]
+    then
+        echo "ERROR: One or more dependencies failed to build or install."
+        echo "       See above for details."
+        exit -1
+    fi
 done
 
 # clean-up
