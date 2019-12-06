@@ -42,7 +42,6 @@ mkdir build \
         -Wpedantic \
         ../range-v3 \
     && make -j \
-    && ctest \
     && make install
 
 # clean-up

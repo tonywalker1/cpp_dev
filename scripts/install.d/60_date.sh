@@ -42,7 +42,7 @@ mkdir build \
         -DENABLE_DATE_TESTING=ON \
         -DCMAKE_BUILD_TYPE=Release \
         ../date \
-    && cmake --build . --target testit -j \
+    && make \
     && make install
 
 # clean-up

@@ -42,7 +42,6 @@ mkdir build \
         -Wpedantic \
         ../expected \
     && make -j  \
-    && ./tests \
     && make install
 
 # clean-up

@@ -22,48 +22,48 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-apt-get install -y --no-install-recommends \
-    libboost-all-dev
+# apt-get install -y --no-install-recommends \
+#     libboost-all-dev
 
 # create build envirnoment
-# SCRATCH_DIR=/tmp/build_scratch
-# rm -rf $SCRATCH_DIR
-# mkdir -p $SCRATCH_DIR
-# pushd $SCRATCH_DIR
-#
+SCRATCH_DIR=/tmp/build_scratch
+rm -rf $SCRATCH_DIR
+mkdir -p $SCRATCH_DIR
+pushd $SCRATCH_DIR
+
 # # install boost deps
-# apt-get update
-# apt-get install -y --no-install-recommends \
-#     autoconf \
-#     automake \
-#     autotools-dev \
-#     curl \
-#     icu-devtools \
-#     libicu-dev \
-#     libbz2-dev \
-#     liblzma-dev \
-#     libopenmpi3 \
-#     libtool \
-#     m4 \
-#     mpi-default-dev \
-#     pkg-config \
-#     python3-dev \
-#     zlib1g-dev
-#
+apt-get update
+apt-get install -y --no-install-recommends \
+    autoconf \
+    automake \
+    autotools-dev \
+    curl \
+    icu-devtools \
+    libicu-dev \
+    libbz2-dev \
+    liblzma-dev \
+    libopenmpi3 \
+    libtool \
+    m4 \
+    mpi-default-dev \
+    pkg-config \
+    python3-dev \
+    zlib1g-dev
+
 # # download and unpack
-# curl \
-#     --output boost.tar.gz \
-#     -L https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.gz
-# tar --strip-components=1 -zxf boost.tar.gz
-#
+curl \
+    --output boost.tar.gz \
+    -L https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.gz
+tar --strip-components=1 -zxf boost.tar.gz
+
 # #build and install
-# ./bootstrap.sh \
-#    --with-icu \
-#         --with-icu \
-#         --with-python=/usr/bin/python3
-# ./b2 -j4
-# ./b2 install
-#
+./bootstrap.sh \
+   --with-icu \
+        --with-icu \
+        --with-python=/usr/bin/python3
+./b2
+./b2 install
+
 # # clean-up
-# popd
-# rm -rf $SCRATCH_DIR
+popd
+rm -rf $SCRATCH_DIR
