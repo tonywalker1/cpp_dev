@@ -22,6 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+echo *** Installing compression libraries ***
 apt-get install -y --no-install-recommends \
     libarchive-dev \
     libbz2-dev \

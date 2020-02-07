@@ -22,6 +22,23 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-echo *** Installing Intel TBB ***
-apt-get install -y --no-install-recommends \
-    libtbb-dev
+echo *** Building Google Test ***
+# create build envirnoment
+SCRATCH_DIR=/tmp/build_scratch
+rm -rf $SCRATCH_DIR
+mkdir -p $SCRATCH_DIR
+pushd $SCRATCH_DIR
+
+# clone
+git clone https://github.com/google/googletest.git
+
+# build and install
+mkdir build \
+    && cd build \
+    && cmake -DCMAKE_BUILD_TYPE=Release ../googletest \
+    && make -j \
+    && make install
+
+# clean-up
+popd
+rm -rf $SCRATCH_DIR

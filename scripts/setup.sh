@@ -28,9 +28,9 @@ set -ex
 
 apt-get update
 
-# run all installers from install.d
+# run all installers from rc.d
 # NOTE: remove execute to stop script from running
-for FILE in $(find install.d -name "*.sh" -perm /u+x | sort)
+for FILE in $(find rc.d -name "*.sh" -perm /u+x | sort)
 do
     $FILE
     if [ $? -ne 0 ]
@@ -44,4 +44,5 @@ done
 # clean-up
 rm -rf /var/lib/apt/lists/*
 rm -rf $ROOT_DIR/install.d
+rm -rf $ROOT_DIR/rc.d
 rm -f  $ROOT_DIR/setup.sh

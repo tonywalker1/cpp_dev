@@ -22,6 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+echo *** Installing Qt ***
 apt-get install -y --no-install-recommends \
     qtbase5-dev \
     qtbase5-dev-tools

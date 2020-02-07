@@ -27,6 +27,7 @@ WORKDIR /cpp
 ADD bashrc        /root/.bashrc
 ADD setup.sh      /cpp/setup.sh
 ADD install.d/*   /cpp/install.d/
+ADD rc.d/*        /cpp/rc.d/
 
 RUN /cpp/setup.sh
 

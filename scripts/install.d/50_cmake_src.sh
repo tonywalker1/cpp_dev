@@ -22,6 +22,33 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-echo *** Installing Intel TBB ***
+echo *** Building Cmake ***
+# create build envirnoment
+SCRATCH_DIR=/tmp/build_scratch
+rm -rf $SCRATCH_DIR
+mkdir -p $SCRATCH_DIR
+pushd $SCRATCH_DIR
+
+# install deps
 apt-get install -y --no-install-recommends \
-    libtbb-dev
+    curl \
+    libjsoncpp1 \
+    librhash0 \
+    libssl-dev \
+    libuv1 \
+&& curl \
+    --output cmake.tar.gz \
+    -L https://github.com/Kitware/CMake/releases/download/v3.16.4/cmake-3.16.4.tar.gz \
+&& tar --strip-components=1 -zxf cmake.tar.gz \
+&& ./bootstrap --verbose -- -DCMAKE_BUILD_TYPE=Release \
+&& make \
+&& make install
+if [ $? -ne 0 ]
+then
+    echo "ERROR: Building CMake."
+    exit -1
+fi
+
+# clean-up
+popd
+rm -rf $SCRATCH_DIR

@@ -22,22 +22,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# create build envirnoment
-SCRATCH_DIR=/tmp/build_scratch
-rm -rf $SCRATCH_DIR
-mkdir -p $SCRATCH_DIR
-pushd $SCRATCH_DIR
-
-# clone
-git clone https://github.com/google/googletest.git
-
-# build and install
-mkdir build \
-    && cd build \
-    && cmake -DCMAKE_BUILD_TYPE=Release ../googletest \
-    && make -j \
-    && make install
-
-# clean-up
-popd
-rm -rf $SCRATCH_DIR
+echo *** Installing Google Test ***
+apt-get install -y --no-install-recommends \
+    googletest \
+    googletest-tools \
+    google-mock

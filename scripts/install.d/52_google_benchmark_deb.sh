@@ -22,25 +22,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+echo *** Installing Google Benchmark ***
 apt-get install -y --no-install-recommends \
     libbenchmark-dev
-
-# create build envirnoment
-# SCRATCH_DIR=/tmp/build_scratch
-# rm -rf $SCRATCH_DIR
-# mkdir -p $SCRATCH_DIR
-# pushd $SCRATCH_DIR
-
-# clone
-# git clone https://github.com/google/benchmark.git
-
-# build and install
-# mkdir build \
-#     && cd build \
-#     && cmake -DCMAKE_BUILD_TYPE=Release ../benchmark \
-#     && make \
-#     && make install
-
-# clean-up
-# popd
-# rm -rf $SCRATCH_DIR

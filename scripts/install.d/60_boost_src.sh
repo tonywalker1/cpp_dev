@@ -22,6 +22,47 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-echo *** Installing Intel TBB ***
+echo *** Building Boost libraries ***
+
+# create build envirnoment
+SCRATCH_DIR=/tmp/build_scratch
+rm -rf $SCRATCH_DIR
+mkdir -p $SCRATCH_DIR
+pushd $SCRATCH_DIR
+
+# # install boost deps
+apt-get update
 apt-get install -y --no-install-recommends \
-    libtbb-dev
+    autoconf \
+    automake \
+    autotools-dev \
+    curl \
+    icu-devtools \
+    libicu-dev \
+    libbz2-dev \
+    liblzma-dev \
+    libopenmpi3 \
+    libtool \
+    m4 \
+    mpi-default-dev \
+    pkg-config \
+    python3-dev \
+    zlib1g-dev
+
+# # download and unpack
+curl \
+    --output boost.tar.gz \
+    -L https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.gz
+tar --strip-components=1 -zxf boost.tar.gz
+
+# #build and install
+./bootstrap.sh \
+   --with-icu \
+        --with-icu \
+        --with-python=/usr/bin/python3
+./b2
+./b2 install
+
+# # clean-up
+popd
+rm -rf $SCRATCH_DIR

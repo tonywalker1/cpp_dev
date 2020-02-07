@@ -22,6 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+echo *** Installing Python ***
 apt-get install -y --no-install-recommends \
     python3 \
     python3-dev
