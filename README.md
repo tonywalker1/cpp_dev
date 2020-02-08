@@ -33,7 +33,7 @@ hear about it.
 # install Docker...
 
 # clone and build
-cd <your project dir>
+cd <your development dir>
 git clone git@github.com:tonywalker1/cpp_dev.git
 cd cpp_dev
 
@@ -41,14 +41,14 @@ cd cpp_dev
 make install
 
 # build the container
-make configure NAME=<project_name>
-# IMPORTANT: edit the links in scripts/rc.d/<project_name> to include only
-# the software you want, see the next section of the README.
-make NAME=<project_name>
+make configure NAME=<image_name>
+# IMPORTANT: Edit the links in scripts/rc.d/<image_name> to include only
+# the software you want, see the Documentation section of the README below.
+make NAME=<image_name>
 
 # use the container
-cd <your project dir>
-run_cpp_dev.sh <project_name>
+cd <your development dir>
+run_cpp_dev.sh <image_name>
 
 # you will land in /cpp
 ll
@@ -60,9 +60,9 @@ ll build
 
 # create a build for an existing project
 cd build
-mkdir <my project>
-cd <my project>
-cmake ../../src/<my project>
+mkdir <project_name>
+cd project_name>
+cmake ../../src/<project_name>
 make
 # your project should build...
 
@@ -70,7 +70,7 @@ make
 exit
 
 # restart the container
-run_cpp_dev.sh <project_name>
+run_cpp_dev.sh <image_name>
 ll build
 # your stuff is still there; the build script creates a separate volume for all
 # of your builds.
