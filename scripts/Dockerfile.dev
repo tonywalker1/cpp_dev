@@ -21,13 +21,14 @@
 # SOFTWARE.
 
 FROM debian:stable
+ARG NAME=cpp_dev
 
 WORKDIR /cpp
 
-ADD bashrc        /root/.bashrc
-ADD setup.sh      /cpp/setup.sh
-ADD install.d/*   /cpp/install.d/
-ADD rc.d/*        /cpp/rc.d/
+ADD bashrc         /root/.bashrc
+ADD setup.sh       /cpp/setup.sh
+ADD install.d/*    /cpp/install.d/
+ADD rc.d/$NAME/*   /cpp/rc.d/$NAME/
 
 RUN /cpp/setup.sh
 

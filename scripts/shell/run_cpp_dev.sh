@@ -22,9 +22,16 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+if [ "$1" = "" ]
+then
+    NAME=cpp_dev
+else
+    NAME="$1"
+fi
+
 docker run \
     --rm \
     -ti \
     --mount type=bind,source="$(pwd)",target=/cpp/src \
     --mount type=volume,source=cpp_build,target=/cpp/build \
-    cpp_dev
+    $NAME

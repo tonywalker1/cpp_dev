@@ -23,8 +23,9 @@ This code builds my basic development environment:
 
 ## Contributing
 While I really created this repo for my friends and I, I would love suggestions,
-fixes, and other contributions. If you use this code to derive your own
-containers, great! I would like to hear about it.
+fixes, code, documentation, examples, and other contributions.
+If you use this code to derive your own containers, great! I would like to
+hear about it.
 
 ## Quick Start
 
@@ -35,11 +36,19 @@ containers, great! I would like to hear about it.
 cd <your project dir>
 git clone git@github.com:tonywalker1/cpp_dev.git
 cd cpp_dev
-./build_cpp_dev.sh
+
+# install tools
+make install
+
+# build the container
+make configure NAME=<project_name>
+# IMPORTANT: edit the links in scripts/rc.d/<project_name> to include only
+# the software you want, see the next section of the README.
+make NAME=<project_name>
 
 # use the container
 cd <your project dir>
-<path to cpp_dev>/run_cpp_dev.sh
+run_cpp_dev.sh <project_name>
 
 # you will land in /cpp
 ll
@@ -61,10 +70,63 @@ make
 exit
 
 # restart the container
-<path to cpp_dev>/run_cpp_dev.sh
+run_cpp_dev.sh <project_name>
 ll build
 # your stuff is still there; the build script creates a separate volume for all
 # of your builds.
 
 # Have fun!
+```
+
+## Documentation
+
+### Introduction
+
+Originally, this code would build only one image (named cpp_dev) using only one
+configuration. In practice, though, we usually want different images for some
+projects (e.g., different library versions). To support building and management
+of multiple build environments, this code provides two features:
+
+1. The configuration for each build environment is stored in `scripts/rc.d/image_name`.
+2. The Makefile and associated scripts take a project name. However, if you
+do not provide a project name argument, cpp_dev is the default.
+
+### Usage
+
+**Install Tools:**
+```bash
+make install
+```
+At the moment, this will install a tool to run your new images and a tool to
+delete ALL images. Use with extreme caution.
+
+**Configure a new Docker Image:**
+
+To start building a new development configuration, run
+```bash
+make configure NAME=<image_name>
+```
+This will create the directory `scripts/rc.d/image_name` and add symbolic links
+for each installation script in `scripts/init.d`.
+
+To customize the configuration, remove any links to installation scripts for
+software your project does not need. **This is particularly important because
+some software has two installation scripts.** When you look in `scripts/rc.d/image_name`, you will see some software which ends in *_deb* and *_src*. The
+*_deb* scripts will install packages from Debian stable. The *_src* scripts
+download and build the latest version from source. If you want stable software
+with security patches, keep the *_deb* links. If you want the latest software,
+keep the *_src* links.
+
+**Build a new Docker Image:**
+
+To build your new image, run
+```bash
+make NAME=<image_name>
+```
+
+**Run your new Docker Image:**
+
+To run your new image, run:
+```bash
+run_cpp_dev.sh <image_name>
 ```
