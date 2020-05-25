@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-echo *** Installing Unicode libraries and tools ***
+echo "*** Installing Unicode libraries and tools ***"
 apt-get install -y --no-install-recommends \
     icu-devtools \
     libicu-dev

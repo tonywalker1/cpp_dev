@@ -37,11 +37,12 @@ git clone https://github.com/HowardHinnant/date.git
 mkdir build \
     && cd build \
     && cmake \
+        -DBUILD_TZ_LIB=ON \
         -DUSE_SYSTEM_TZ_DB=ON \
         -DBUILD_SHARED_LIBS=ON \
-        -DCMAKE_CXX_STANDARD=17 \
         -DDISABLE_STRING_VIEW=OFF \
-        -DENABLE_DATE_TESTING=ON \
+        -DENABLE_DATE_TESTING=OFF \
+        -DCMAKE_CXX_STANDARD=17 \
         -DCMAKE_BUILD_TYPE=Release \
         ../date \
     && make \

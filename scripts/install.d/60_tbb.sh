@@ -22,6 +22,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-echo *** Installing Intel TBB ***
+echo "*** Installing Intel TBB ***"
 apt-get install -y --no-install-recommends \
     libtbb-dev

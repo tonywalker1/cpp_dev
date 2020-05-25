@@ -22,6 +22,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-echo *** Installing Boost libraries ***
+echo "*** Installing Boost libraries ***"
 apt-get install -y --no-install-recommends \
     libboost-all-dev

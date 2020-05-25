@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-echo *** Building Google Test ***
+echo "*** Building Google Test ***"
 # create build envirnoment
 SCRATCH_DIR=/tmp/build_scratch
 rm -rf $SCRATCH_DIR

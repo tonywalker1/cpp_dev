@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-echo *** Building Boost libraries ***
+echo "*** Building Boost libraries ***"
 
 # create build envirnoment
 SCRATCH_DIR=/tmp/build_scratch
@@ -52,7 +52,7 @@ apt-get install -y --no-install-recommends \
 # # download and unpack
 curl \
     --output boost.tar.gz \
-    -L https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.gz
+    -L https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.gz
 tar --strip-components=1 -zxf boost.tar.gz
 
 # #build and install

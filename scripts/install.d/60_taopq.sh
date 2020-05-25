@@ -22,13 +22,17 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-echo *** Building taopq ***
+echo "*** Building taopq ***"
 
 # create build envirnoment
 SCRATCH_DIR=/tmp/build_scratch
 rm -rf $SCRATCH_DIR
 mkdir -p $SCRATCH_DIR
 pushd $SCRATCH_DIR
+
+apt-get install -y --no-install-recommends \
+    libpq-dev \
+    postgresql-server-dev-all
 
 # clone
 git clone https://github.com/taocpp/taopq.git

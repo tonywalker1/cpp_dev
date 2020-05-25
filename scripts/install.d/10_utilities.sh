@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-echo *** Installing various utilities ***
+echo "*** Installing various utilities ***"
 apt-get install -y --no-install-recommends \
     bzip2 \
     ca-certificates \

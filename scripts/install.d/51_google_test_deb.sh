@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-echo *** Installing Google Test ***
+echo "*** Installing Google Test ***"
 apt-get install -y --no-install-recommends \
     googletest \
     googletest-tools \

@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-echo *** Building Catch2 ***
+echo "*** Building Catch2 ***"
 
 # create build envirnoment
 SCRATCH_DIR=/tmp/build_scratch
