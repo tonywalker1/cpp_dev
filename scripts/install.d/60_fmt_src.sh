@@ -33,7 +33,7 @@ pushd $SCRATCH_DIR
 # # download and unpack
 curl \
     --output fmt.tar.gz \
-    -L https://github.com/fmtlib/fmt/archive/6.2.1.tar.gz
+    -L https://github.com/fmtlib/fmt/archive/7.0.1.tar.gz
 tar --strip-components=1 -zxf fmt.tar.gz
 
 # # build and install
