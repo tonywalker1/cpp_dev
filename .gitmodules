@@ -1,0 +1,3 @@
+[submodule "scripts/external/cpp_tools"]
+	path = scripts/external/cpp_tools
+	url = https://github.com/tonywalker1/cpp_tools.git

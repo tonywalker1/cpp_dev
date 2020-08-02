@@ -25,10 +25,11 @@ ARG NAME=cpp_dev
 
 WORKDIR /cpp
 
-ADD bashrc         /root/.bashrc
-ADD setup.sh       /cpp/setup.sh
-ADD install.d/*    /cpp/install.d/
-ADD rc.d/$NAME/*   /cpp/rc.d/$NAME/
+ADD bashrc                          /root/.bashrc
+ADD setup.sh                        /cpp/setup.sh
+ADD install.d/*                     /cpp/install.d/
+ADD rc.d/$NAME/*                    /cpp/rc.d/$NAME/
+ADD cpp_tools/configure_cmake.py    /usr/local/bin/
 
 RUN /cpp/setup.sh
 

@@ -41,6 +41,10 @@ do
     fi
 done
 
+# set permissions
+chown root:root   /usr/local/bin/configure_cmake.py
+chmod ug=rwx,o=rx /usr/local/bin/configure_cmake.py
+
 # clean-up
 rm -rf /var/lib/apt/lists/*
 rm -rf $ROOT_DIR/install.d

@@ -21,6 +21,12 @@ This code builds my basic development environment:
 * Howard Hinnant's date and time library (in-progress for C++20)
 * and more ...
 
+The resulting container also includes tools from:
+* https://github.com/tonywalker1/cpp_tools
+
+**NOTE:** When Podman becomes better supported in Debian, I will likely refactor
+this project to support Podman and to add some additional unrelated features.
+
 ## Contributing
 While I really created this repo for my friends and I, I would love suggestions,
 fixes, code, documentation, examples, and other contributions.
