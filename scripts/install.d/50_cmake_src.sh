@@ -38,7 +38,7 @@ apt-get install -y --no-install-recommends \
     libuv1 \
 && curl \
     --output cmake.tar.gz \
-    -L https://github.com/Kitware/CMake/releases/download/v3.18.1/cmake-3.18.1.tar.gz \
+    -L https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2.tar.gz \
 && tar --strip-components=1 -zxf cmake.tar.gz \
 && ./bootstrap --verbose -- -DCMAKE_BUILD_TYPE=Release \
 && make \

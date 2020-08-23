@@ -52,7 +52,7 @@ apt-get install -y --no-install-recommends \
 # # download and unpack
 curl \
     --output boost.tar.gz \
-    -L https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.gz
+    -L https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.tar.gz
 tar --strip-components=1 -zxf boost.tar.gz
 
 # #build and install
