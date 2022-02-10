@@ -1,6 +1,8 @@
 # cpp_dev
 My basic C++ development container.
 
+NOTE: I have shifted my development to Rust. I will leave this project here, but unmaintained. 
+
 ## Summary
 I started programming C++ around 25 years ago. At that time, I developed
 on one system and tested on another. Of course, it didn't take long for a system
